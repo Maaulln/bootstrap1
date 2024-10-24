@@ -34,3 +34,36 @@ const navLinks = document.querySelectorAll('.nav-link');
   window.onload = function() {
     setTimeout(typeWriter, 500);
   };
+
+  // form
+const form = document.getElementById('myForm');
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById('name').value;
+  const message = document.getElementById('message').value;
+
+  fetch('http://localhost:3000/send-email', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      toEmail: 'oyisa156@gmail.com',
+      subject: `New message from ${name}`,
+      message: message
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      alert('Email sent successfully!');
+    } else {
+      alert('Failed to send email');
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+});
