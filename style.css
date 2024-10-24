@@ -2,3 +2,25 @@
   padding-top: 5rem;
   background-color: #ffffff00;
 }
+.nav-color{
+  background-color: #6f00ff;
+  opacity: 85%;
+}
+
+.blinking-cursor {
+  font-weight: 100;
+  font-size: 24px;
+  color: #6f00ff;
+  animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+#typed-text {
+  font-size: 36px;
+  font-weight: bold;
+  color: #000;
+}
